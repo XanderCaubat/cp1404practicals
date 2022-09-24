@@ -31,7 +31,6 @@ def determine_score(score):
         return "Excellent"
     elif score >= 50:
         return "Pass"
-
     else:
         return "Bad"
 
