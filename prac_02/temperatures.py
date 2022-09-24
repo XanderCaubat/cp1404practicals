@@ -26,6 +26,7 @@ def main():
 
 
 def convert_celsius_to_fahrenheit():
+    """"""
     celsius = float(input("Celsius: "))
     fahrenheit = celsius * 9.0 / 5 + 32
     print("Result: {:.2f} F".format(fahrenheit))

@@ -13,6 +13,7 @@ def main():
 
 
 def get_password(min_length):
+    """Ask the user for a password"""
     password = input("Password: ")
     while len(password) < min_length:
         print("Invalid number of characters (min. 10).")
