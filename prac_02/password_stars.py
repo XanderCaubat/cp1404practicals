@@ -2,6 +2,7 @@
 Practical 02
 Xander Dino Caubat
 Password Check with Functions
+Refactoring this program to use functions
 """
 
 
