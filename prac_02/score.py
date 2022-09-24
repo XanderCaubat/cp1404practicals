@@ -5,11 +5,13 @@ Scores
 Writing a new function that ask their user for their
 score and print the result
 """
+import random
 
 
 def main():
     score = get_score()
     determine_score(score)
+    determine_score(random.randint(0, 100))
 
 
 def get_score():
@@ -25,6 +27,7 @@ def determine_score(score):
         print("Excellent")
     elif score >= 50:
         print("Pass")
+
     else:
         print("Bad")
 
