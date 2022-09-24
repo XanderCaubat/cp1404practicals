@@ -1,6 +1,26 @@
-min_length = 10
-password = input("Password: ")
-while len(password) < min_length:
-    print("Invalid number of characters (min. 10).")
+"""
+Practical 02
+Xander Dino Caubat
+Password Check with Functions
+"""
+
+
+def main():
+    min_length = 10
+    password = get_password(min_length)
+    print_asterisk(password)
+
+
+def get_password(min_length):
     password = input("Password: ")
-print("*" * len(password))
+    while len(password) < min_length:
+        print("Invalid number of characters (min. 10).")
+        password = input("Password: ")
+    return password
+
+
+def print_asterisk(password):
+    print("*" * len(password))
+
+
+main()
