@@ -24,21 +24,24 @@ uses a main and other functions
 # <do final thing, if needed>
 
 def main():
-    print("Welcome to Score Program\n(R)esult\n(D)isplay Stars\n(Q)uit")
+    score = 0
+    print("Welcome to Score Program\n(S)core\n(R)esult\n(D)isplay Stars\n(Q)uit")
     choice = input(">>> ").upper()
     while choice != 'Q':
-        if choice == 'R':
-            display_result()
+        if choice == 'S':
+            score = get_score()
+        elif choice == 'R':
+            display_result(score)
         elif choice == 'D':
-            pass
+            print_stars(score)
         else:
             print("Invalid input.")
-        choice = input("Choice: ").upper()
+        print("Welcome to Score Program\n(S)core\n(R)esult\n(D)isplay Stars\n(Q)uit")
+        choice = input(">>>: ").upper()
     print("Thank you for using the Score Program. Have a nice day :)")
 
 
-def display_result():
-    score = get_score()
+def display_result(score):
     grade = determine_score(score)
     print(grade)
 
@@ -60,6 +63,14 @@ def determine_score(score):
         return "Pass"
     else:
         return "Bad"
+
+
+def print_stars(score):
+    if score <= 0:
+        print("There is no score recorded.")
+    elif score > 0:
+        for i in range(round(score)):
+            print("*", end='')
 
 
 main()
