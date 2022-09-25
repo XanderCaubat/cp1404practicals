@@ -25,7 +25,7 @@ uses a main and other functions
 
 def main():
     score = 0
-    print("Welcome to Score Program\n(S)core\n(R)esult\n(D)isplay Stars\n(Q)uit")
+    print_menu()
     choice = input(">>> ").upper()
     while choice != 'Q':
         if choice == 'S':
@@ -36,9 +36,14 @@ def main():
             print_stars(score)
         else:
             print("Invalid input.")
-        print("Welcome to Score Program\n(S)core\n(R)esult\n(D)isplay Stars\n(Q)uit")
+        print_menu()
         choice = input(">>>: ").upper()
     print("Thank you for using the Score Program. Have a nice day :)")
+
+
+def print_menu():
+    print("Welcome to Score Program")
+    print("(S)core\n(R)esult\n(D)isplay Stars\n(Q)uit\n")
 
 
 def display_result(score):
