@@ -42,7 +42,7 @@ def main():
 
 
 def print_menu():
-    print("Welcome to Score Program")
+    print("\nWelcome to Score Program")
     print("(S)core\n(R)esult\n(D)isplay Stars\n(Q)uit\n")
 
 
