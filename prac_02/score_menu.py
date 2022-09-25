@@ -43,11 +43,14 @@ def main():
 
 def display_result(score):
     grade = determine_score(score)
+    length = len(grade)
+    print("*" * length)
     print(grade)
+    print("*" * length)
 
 
 def get_score():
-    """Ask the user to put in password"""
+    """determine password is valid"""
     score = float(input("Enter score: "))
     while score > 100 or score < 0:
         print("Invalid score")
@@ -56,7 +59,7 @@ def get_score():
 
 
 def determine_score(score):
-    """Determine which grade the score belongs to"""
+    """determine which grade the score belongs to"""
     if score >= 90:
         return "Excellent"
     elif score >= 50:
@@ -66,6 +69,7 @@ def determine_score(score):
 
 
 def print_stars(score):
+    """print stars according to the score"""
     if score <= 0:
         print("There is no score recorded.")
     elif score > 0:
