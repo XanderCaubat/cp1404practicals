@@ -1,4 +1,5 @@
 """
+Xander Dino Caubat
 CP1404/CP5632 - Practical
 Various examples of using Python string formatting.
 (We prefer f-strings in this subject.)
