@@ -5,10 +5,10 @@ This program will simulate stock-price.
 """
 
 import random
-MAX_INCREASE = 0.1  # 10%
+MAX_INCREASE = 0.175  # modified 10% to 17.5%
 MAX_DECREASE = 0.05  # 5%
-MIN_PRICE = 0.01
-MAX_PRICE = 1000.0
+MIN_PRICE = 1.0    # change 0.01 to 1.0
+MAX_PRICE = 100.0   # change 1000.0 to 100.0
 INITIAL_PRICE = 10.0
 
 price = INITIAL_PRICE
@@ -30,5 +30,5 @@ while price >= MIN_PRICE and price <= MAX_PRICE:
         price_change = random.uniform(-MAX_DECREASE, 0)
 
     price *= (1 + price_change)
-    # print("${:,.2f}".format(price))
+    # modified string formatting of print statement
     print(f"On day {number_of_days} price is: ${price:,.2f}")
