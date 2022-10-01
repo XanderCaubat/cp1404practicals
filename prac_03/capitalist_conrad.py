@@ -5,16 +5,19 @@ This program will simulate stock-price.
 """
 
 import random
-MAX_INCREASE = 0.175  # modified 10% to 17.5%
+
+OUTPUT_FILE = "price_list.txt"
+MAX_INCREASE = 0.175  # changed 10% to 17.5%
 MAX_DECREASE = 0.05  # 5%
-MIN_PRICE = 1.0    # change 0.01 to 1.0
-MAX_PRICE = 100.0   # change 1000.0 to 100.0
+MIN_PRICE = 1.0  # change 0.01 to 1.0
+MAX_PRICE = 100.0  # change 1000.0 to 100.0
 INITIAL_PRICE = 10.0
 
 price = INITIAL_PRICE
 number_of_days = 0
 print("${:,.2f}".format(price))
 
+out_file = open(OUTPUT_FILE, 'w')
 while price >= MIN_PRICE and price <= MAX_PRICE:
     price_change = 0
     number_of_days += 1
@@ -30,5 +33,9 @@ while price >= MIN_PRICE and price <= MAX_PRICE:
         price_change = random.uniform(-MAX_DECREASE, 0)
 
     price *= (1 + price_change)
-    # modified string formatting of print statement
+    # changed string formatting of print statement
     print(f"On day {number_of_days} price is: ${price:,.2f}")
+    # added print statement to write to file
+    print(f"On day {number_of_days} price is: ${price:,.2f}", file=out_file)
+
+out_file.close()
