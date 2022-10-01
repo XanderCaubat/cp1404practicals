@@ -4,17 +4,15 @@ Exceptions Demo
 This program takes user's number inputs and calculates into fraction.
 """
 
-is_valid_input = False
-while not is_valid_input:  # placed try/except inside a while loop to ask user to enter a valid input
-    try:
-        numerator = int(input("Enter the numerator: "))
-        denominator = int(input("Enter the denominator: "))
+try:
+    numerator = int(input("Enter the numerator: "))
+    denominator = int(input("Enter the denominator: "))
+    if denominator == 0:  # this if statement catches the input if its 0 to avoid the possibility of ZeroDivisionError
+        print("0")
+    else:
         fraction = numerator / denominator
         print(fraction)
-    except ValueError:
-        print("Numerator and denominator must be valid numbers!")  # this occurs when input is not an integer
-    except ZeroDivisionError:
-        print("Cannot divide by zero!")  # this occurs when the numerator is divided by zero
-    else:
-        is_valid_input = True
-print("Finished.")
+except ValueError:
+    print("Numerator and denominator must be valid numbers!")  # this occurs when input is not an integer
+except ZeroDivisionError:
+    print("Cannot divide by zero!")  # this occurs when the numerator is divided by zero
