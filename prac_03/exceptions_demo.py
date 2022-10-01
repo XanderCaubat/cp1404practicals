@@ -15,4 +15,6 @@ while not is_valid_input:  # placed try/except inside a while loop to ask user t
         print("Numerator and denominator must be valid numbers!")  # this occurs when input is not an integer
     except ZeroDivisionError:
         print("Cannot divide by zero!")  # this occurs when the numerator is divided by zero
+    else:
+        is_valid_input = True
 print("Finished.")
