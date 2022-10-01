@@ -10,7 +10,7 @@ try:
     fraction = numerator / denominator
     print(fraction)
 except ValueError:
-    print("Numerator and denominator must be valid numbers!")
+    print("Numerator and denominator must be valid numbers!")  # this occurs when the numbers entered are not integer
 except ZeroDivisionError:
-    print("Cannot divide by zero!")
+    print("Cannot divide by zero!")  # this occurs when the numerator is divided by zero
 print("Finished.")
