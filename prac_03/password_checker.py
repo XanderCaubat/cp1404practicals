@@ -40,15 +40,13 @@ def is_valid_password(password):
         count_lower += int(char.islower())
         count_upper += int(char.isupper())
         count_digit += int(char.isdigit())
+        if char in SPECIAL_CHARACTERS:
+            count_special += 1
     if count_lower == 0 or count_upper == 0 or count_digit == 0:
         return False
     # this if statement only happens when the constant "special characters required"  is set to true
     # then passed in a list of the special characters to a variable to be checked for special count
     if SPECIAL_CHARS_REQUIRED:
-        special_characters = SPECIAL_CHARACTERS
-        for char in password:
-            if char in special_characters:
-                count_special += 1
         if count_special == 0:
             return False
     return True
