@@ -20,3 +20,10 @@ with open("numbers.txt", "r") as in_file:
     total = int(numbers[0]) + int(numbers[1])
     print(total)
     in_file.close()
+
+with open("numbers.txt", "r") as in_file:
+    total = 0
+    for line in in_file:
+        total += int(line)
+        print(total)
+    in_file.close()
