@@ -16,3 +16,14 @@ numbers = [3, 1, 4, 1, 5, 9, 2]
 # False
 # [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]
 
+# answer 1
+numbers[0] = "ten"
+print(numbers)
+# answer 2
+numbers[-1] = 1
+print(numbers[-1])
+# answer 3
+print(numbers[2:])
+# answer 4
+if 9 in numbers:
+    print("9 is an element of numbers.")
