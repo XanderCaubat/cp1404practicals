@@ -7,20 +7,28 @@ import random
 
 MIN = 1
 MAX = 45
-RANDOM_NUMBERS = 6
+NUMBERS_PER_LINE = 6
 
 
 def main():
     number_of_picks = get_valid_number()
+    display_quick_picks(number_of_picks)
+
+
+def display_quick_picks(number_of_picks):
     for i in range(number_of_picks):
         picks = []
-        for j in range(RANDOM_NUMBERS):
-            random_number = random.randint(MIN, MAX)
-            while random_number in picks:
-                random_number = random.randint(MIN, MAX)
-            picks.append(random_number)
+        generate_random_numbers(picks)
         picks.sort()
         print(" ".join([f"{random_number}" for random_number in picks]))
+
+
+def generate_random_numbers(picks):
+    for j in range(NUMBERS_PER_LINE):
+        random_number = random.randint(MIN, MAX)
+        while random_number in picks:
+            random_number = random.randint(MIN, MAX)
+        picks.append(random_number)
 
 
 def get_valid_number():
