@@ -17,6 +17,7 @@ def main():
     print_report(incomes)
 
 
+# removed the second parameter as incomes is all we needed for this function
 def print_report(incomes):
     print("\nIncome Report\n-------------")
     total = 0
