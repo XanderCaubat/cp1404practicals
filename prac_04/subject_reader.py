@@ -13,6 +13,7 @@ def main():
 
 
 def display_data(data):
+    """Iterate each list inside a list and display each list in a formatted string"""
     for subject in data:
         print(f"{subject[0]} is taught by {subject[1]} and has {subject[2]} students")
 
