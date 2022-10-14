@@ -15,5 +15,8 @@ while state_code != "":
     except KeyError:
         print("Invalid Key Input!")
     state_code = input("Enter short state: ").upper()
-for state_code in CODE_TO_NAME:
-    print(f"{state_code:3} is {CODE_TO_NAME[state_code]}")
+if CODE_TO_NAME == {}:
+    print("Dictionary does not exist!")
+else:
+    for state_code in CODE_TO_NAME:
+        print(f"{state_code:3} is {CODE_TO_NAME[state_code]}")
