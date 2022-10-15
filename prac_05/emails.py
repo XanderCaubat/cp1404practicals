@@ -17,15 +17,15 @@ def main():
     print_dictionary(email_to_name)
 
 
-def confirm_name(email, email_to_names, name):
+def confirm_name(email, email_to_name, name):
     confirmation = input(f"Is you name {name}? (Y/N) ").lower()
     if confirmation != "y" and confirmation != "":
         name = input("Name: ").title()
-    email_to_names[email] = name
+    email_to_name[email] = name
 
 
-def print_dictionary(email_to_names):
-    for email, name in email_to_names.items():
+def print_dictionary(email_to_name):
+    for email, name in email_to_name.items():
         print(f"{name:<15} ({email:})")
 
 
