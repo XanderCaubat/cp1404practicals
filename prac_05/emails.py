@@ -19,9 +19,13 @@ def main():
             actual_name = input("Name: ")
             email_to_names[email] = actual_name
         email = input("Email: ")
-    print(f"{name} ({email})" for email, name in email_to_names.items())
-    # for email, name in email_to_names.items():
-    #     print(f"{name} ({email})")
+    print_dictionary(email_to_names)
+
+
+def print_dictionary(email_to_names):
+    max_length = max(len(email_to_names[name]) for name in email_to_names)
+    for email, name in email_to_names.items():
+        print(f"{name:{max_length}} ({email})")
 
 
 def extract_name(email):
