@@ -23,9 +23,12 @@ def main():
 
 
 def print_dictionary(email_to_names):
-    max_length = max(len(email_to_names[name]) for name in email_to_names)
-    for email, name in email_to_names.items():
-        print(f"{name:{max_length}} ({email})")
+    try:
+        max_length = max(len(email_to_names[name]) for name in email_to_names)
+        for email, name in email_to_names.items():
+            print(f"{name:{max_length}} ({email})")
+    except ValueError:
+        print("Invalid input!")
 
 
 def extract_name(email):
