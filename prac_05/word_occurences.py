@@ -7,18 +7,20 @@ Actual:
 """
 
 word_to_count = {}
-text = input("Text: ")
-words = text.split()
-
-
-for word in words:
-    count = word_to_count.get(word, 0)
-    word_to_count[word] = count + 1
-words = sorted(list(word_to_count.keys()))
-print(words)
-word_length = max((len(word) for word in words))
-for word in words:
-    print(f"{word:{word_length}} : {word_to_count[word]}")
-
+is_valid = False
+while not is_valid:
+    try:
+        text = input("Text: ")
+        words = text.split()
+        for word in words:
+            count = word_to_count.get(word, 0)
+            word_to_count[word] = count + 1
+        words = sorted(list(word_to_count.keys()))
+        word_length = max((len(word) for word in words))
+        for word in words:
+            print(f"{word:{word_length}} : {word_to_count[word]}")
+        is_valid = True
+    except ValueError:
+        print("Invalid input!Empty input not allowed.")
 
 
