@@ -13,11 +13,9 @@ def main():
     while email != "":
         name = extract_name(email)
         confirmation = input(f"Is you name {name}? (Y/N) ").lower()
-        if confirmation == "y" or confirmation == "":
-            email_to_names[email] = name
-        elif confirmation == "n":
-            actual_name = input("Name: ")
-            email_to_names[email] = actual_name
+        if confirmation != "y" and confirmation != "":
+            name = input("Name: ").title()
+        email_to_names[email] = name
         email = input("Email: ")
     print_dictionary(email_to_names)
 
