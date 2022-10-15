@@ -1,9 +1,9 @@
 """
 CP1404/CP5632 - Practical 5
-State Names
+Word Occurrence
 This program counts the occurrences of words in a string.
 Estimate: 30 minutes
-Actual:
+Actual:   110 minutes
 """
 
 word_to_count = {}
