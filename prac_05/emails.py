@@ -8,13 +8,13 @@ Actual:   160 minutes
 
 
 def main():
-    email_to_names = {}
+    email_to_name = {}
     email = input("Email: ")
     while email != "":
         name = extract_name(email)
-        confirm_name(email, email_to_names, name)
+        confirm_name(email, email_to_name, name)
         email = input("Email: ")
-    print_dictionary(email_to_names)
+    print_dictionary(email_to_name)
 
 
 def confirm_name(email, email_to_names, name):
