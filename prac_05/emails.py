@@ -3,7 +3,7 @@ CP1404/CP5632 - Practical 5
 Emails
 This program stores user's emails and name in a dictionary.
 Estimate: 100 minutes
-Actual:    minutes
+Actual:   160 minutes
 """
 
 
@@ -12,7 +12,8 @@ def main():
     email = input("Email: ")
     while email != "":
         name = extract_name(email)
-        email = confirm_name(email, email_to_names, name)
+        confirm_name(email, email_to_names, name)
+        email = input("Email: ")
     print_dictionary(email_to_names)
 
 
@@ -21,8 +22,6 @@ def confirm_name(email, email_to_names, name):
     if confirmation != "y" and confirmation != "":
         name = input("Name: ").title()
     email_to_names[email] = name
-    email = input("Email: ")
-    return email
 
 
 def print_dictionary(email_to_names):
