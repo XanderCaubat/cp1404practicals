@@ -6,10 +6,10 @@ Estimate: 30 minutes
 Actual:
 """
 
-TEXT_TO_COUNT = {}
-text = "this is a collection of words of nice words this is a fun thing it is"
+word_to_count = {}
+text = input("Text: ")
 words = text.split()
 for word in words:
-    count = TEXT_TO_COUNT.get(word, 0)
-    TEXT_TO_COUNT[word] = count + 1
-print(TEXT_TO_COUNT)
+    count = word_to_count.get(word, 0)
+    word_to_count[word] = count + 1
+print(word_to_count)
