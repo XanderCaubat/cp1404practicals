@@ -36,7 +36,10 @@ def process_logs(logs):
         name = parts[CHAMPION_NAME]
         countries.add(parts[COUNTRY])
         win_count = champion_to_win_count.get(name, 0)
-        champion_to_win_count[name] = win_count + 1
+        try:
+            champion_to_win_count[name] = win_count + 1
+        except KeyError:
+            champion_to_win_count[name] = 1
     return champion_to_win_count, countries
 
 
