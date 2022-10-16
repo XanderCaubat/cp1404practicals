@@ -8,7 +8,11 @@ Actual:   minutes
 
 
 def main():
-    pass
+    with open('../prac_05/wimbledon.csv', 'r', encoding="utf-8-sig") as in_file:
+        lines = [line.strip() for line in in_file.readlines()]
+        winners = set(lines)
+        print(winners)
+        print(len(winners))
 
 
 main()
