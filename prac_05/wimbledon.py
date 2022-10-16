@@ -7,6 +7,8 @@ Actual:   minutes
 """
 
 FILENAME = '../prac_05/wimbledon.csv'
+CHAMPION_NAME = 2
+COUNTRY = 1
 
 
 def main():
@@ -31,8 +33,8 @@ def process_logs(logs):
     champions = [winner for winner in logs]
     for champion in champions:
         parts = champion.split(',')
-        name = parts[2]
-        countries.add(parts[1])
+        name = parts[CHAMPION_NAME]
+        countries.add(parts[COUNTRY])
         win_count = champion_to_win_count.get(name, 0)
         champion_to_win_count[name] = win_count + 1
     return champion_to_win_count, countries
