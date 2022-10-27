@@ -35,3 +35,7 @@ class Car:
             self.fuel -= distance
         self._odometer += distance
         return distance
+
+    def display(self):
+        return f"{Car}, fuel={self.fuel}, odometer={self._odometer}"
+
