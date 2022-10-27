@@ -15,3 +15,6 @@ def main():
     my_car.drive(30)
     print(f"Car has fuel: {my_car.fuel}")
     print(my_car)
+
+
+main()
