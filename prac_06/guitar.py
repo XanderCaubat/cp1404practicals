@@ -16,3 +16,7 @@ class Guitar:
 
     def display(self):
         return f"{self.name} ({self.year}) : ${self.cost}"
+
+    def get_age(self):
+        age = 2022 - self.year
+        return age
