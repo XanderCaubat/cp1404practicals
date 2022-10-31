@@ -7,8 +7,8 @@ Actual:    25 minutes
 """
 from datetime import datetime
 
-current_date_time = datetime.now()
 VINTAGE_AGE = 50
+current_date_time = datetime.now()
 
 
 class Guitar:
@@ -27,4 +27,5 @@ class Guitar:
     def is_vintage(self):
         return self.get_age() >= VINTAGE_AGE
 
-
+    def __lt__(self, other):
+        return self.year_model < other.year_model
