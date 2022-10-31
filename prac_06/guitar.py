@@ -3,7 +3,7 @@ CP1404/CP5632 - Practical 6
 Guitar
 This program uses Guitar class as an example
 Estimate: 100 minutes
-Actual:    minutes
+Actual:    25 minutes
 """
 
 
