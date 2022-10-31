@@ -23,8 +23,8 @@ def main():
         display_guitar_added(cost, name, year)
         name = input("Name: ")
     print("These are my guitars:")
-    vintage_string = ""
     for i, guitar in enumerate(guitars, 1):
+        vintage_string = ""
         if guitar.is_vintage():
             vintage_string = "(vintage)"
         print(f"Guitar {i}: {guitar.name:>20} ({guitar.year}), worth ${guitar.cost:10,.2f}{vintage_string}")
