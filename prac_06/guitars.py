@@ -14,15 +14,46 @@ def main():
     guitars = []
     name = input("Name: ")
     while name != "":
-        year = int(input("Year: "))
-        cost = float(input("Cost: $"))
+        year = get_year()
+        cost = get_cost()
         add_guitar = Guitar(name, year, cost)
         guitars.append(add_guitar)
         display_guitar_added(cost, name, year)
         name = input("Name: ")
+    add_to_list(guitars)
+    display_guitars(guitars)
+
+
+def get_cost():
+    is_valid = False
+    while not is_valid:
+        try:
+            cost = float(input("Cost: $"))
+            is_valid = True
+        except ValueError:
+            print("Invalid integer!")
+    return cost
+
+
+def get_year():
+    is_valid = False
+    while not is_valid:
+        try:
+            year = int(input("Year: "))
+            is_valid = True
+        except ValueError:
+            print("Invalid integer!")
+    return year
+
+
+def add_to_list(guitars):
     guitars.append(Guitar("Gibson L-5 CES", 1922, 16035.40))
     guitars.append(Guitar("Line 6 JTV-59", 2010, 1512.9))
+
+
+def display_guitars(guitars):
     print("These are my guitars:")
+    guitars.sort()
     for i, guitar in enumerate(guitars, 1):
         vintage_string = ""
         if guitar.is_vintage():
