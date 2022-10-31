@@ -10,12 +10,16 @@ from prac_06.guitar import Guitar
 
 
 def main():
+    print("My guitars!")
     guitars = []
     cost, name, year = get_guitar()
-    add_guitar(cost, guitars, name, year)
+    # add_guitar(cost, guitars, name, year)
     while name != "":
         cost, name, year = get_guitar()
-        add_guitar(cost, guitars, name, year)
+        # add_guitar(cost, guitars, name, year)
+        guitars.append(Guitar("Gibson L-5 CES", 1922, 16035.40))
+        guitars.append(Guitar("Line 6 JTV-59", 2010, 1512.9))
+    print("These are my guitars:")
 
 
 def add_guitar(cost, guitars, name, year):
