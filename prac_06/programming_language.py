@@ -16,4 +16,7 @@ class ProgrammingLanguage:
         self.year = year
 
     def is_dynamic(self):
-        return  self.typing == "Dynamic"
+        return self.typing == "Dynamic"
+
+    def display(self):
+        return f"{self.name}, {self.is_dynamic()} Typing, Reflection={self.reflection}, First appeared in {self.year}"
