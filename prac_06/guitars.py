@@ -3,7 +3,7 @@ CP1404/CP5632 - Practical 6
 Guitars
 This program stores a list of guitars until they enter a blank name.
 Estimate: 100 minutes
-Actual:     minutes
+Actual:    40 minutes
 """
 
 from prac_06.guitar import Guitar
