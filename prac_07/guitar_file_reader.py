@@ -19,7 +19,13 @@ def main():
     guitar = Guitar(guitar_name, model_year, cost)
     guitars.append(guitar)
     print_guitars(guitars)
+    save_guitars(guitars)
 
+
+def save_guitars(guitars):
+    with open(FILENAME, 'w') as out_file:
+        for guitar in guitars:
+            print(guitar, file=out_file)
 
 
 def print_guitars(guitars):
