@@ -19,7 +19,10 @@ def main():
             parts = line.strip().split(',')
             guitar = Guitar(parts[0], int(parts[1]), float(parts[2]))
             guitars.append(guitar)
-    print(guitars)
+
+    guitars.sort()
+    for guitar in guitars:
+        print(guitar)
 
 
 main()
