@@ -18,4 +18,4 @@ class Guitar:
         return f"Guitar: {self.name}, Model Year: {self.year}, Cost: ${self.cost}"
 
     def __lt__(self, other):
-        return self.year > other.year
+        return self.year < other.year
