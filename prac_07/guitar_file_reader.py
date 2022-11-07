@@ -12,6 +12,17 @@ FILENAME = "guitars.csv"
 
 
 def main():
+    guitars = load_guitars_csv()
+    print_guitars(guitars)
+
+
+def print_guitars(guitars):
+    guitars.sort()
+    for guitar in guitars:
+        print(guitar)
+
+
+def load_guitars_csv():
     guitars = []
     with open(FILENAME, 'r') as in_file:
         in_file.readline()
@@ -19,10 +30,7 @@ def main():
             parts = line.strip().split(',')
             guitar = Guitar(parts[0], int(parts[1]), float(parts[2]))
             guitars.append(guitar)
-
-    guitars.sort()
-    for guitar in guitars:
-        print(guitar)
+    return guitars
 
 
 main()
