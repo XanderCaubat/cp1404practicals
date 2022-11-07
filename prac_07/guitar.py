@@ -3,7 +3,7 @@ CP1404/CP5632 - Practical 6
 Guitar
 Guitar class
 Estimate: 100 minutes
-Actual:       minutes
+Actual:    10 minutes
 """
 
 
