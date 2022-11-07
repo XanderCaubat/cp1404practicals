@@ -13,7 +13,13 @@ FILENAME = "guitars.csv"
 
 def main():
     guitars = load_guitars_csv()
+    guitar_name = input("Guitar name: ")
+    model_year = int(input("Year: "))
+    cost = float(input("Cost: "))
+    guitar = Guitar(guitar_name, model_year, cost)
+    guitars.append(guitar)
     print_guitars(guitars)
+
 
 
 def print_guitars(guitars):
