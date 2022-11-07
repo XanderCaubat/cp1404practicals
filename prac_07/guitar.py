@@ -14,7 +14,7 @@ class Guitar:
         self.year = year
         self.cost = cost
 
-    def __str__(self):
+    def __repr__(self):
         return f"Guitar: {self.name}, Model Year: {self.year}, Cost: ${self.cost}"
 
     def __lt__(self, other):
