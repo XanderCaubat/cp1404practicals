@@ -84,7 +84,7 @@ def read_projects_file(projects):
             parts = line.strip().split('\t')
             parts[1] = parts[1].split('/')
             date = datetime.date(int(parts[1][2]), int(parts[1][1]), int(parts[1][0]))
-            project = Project(parts[0], date.strftime("%d/%m/%y"), int(parts[2]), float(parts[3]), float(parts[4]))
+            project = Project(parts[0], date, int(parts[2]), float(parts[3]), float(parts[4]))
             projects.append(project)
 
 
