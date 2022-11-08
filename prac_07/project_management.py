@@ -13,6 +13,8 @@ MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter p
 
 
 def main():
+    projects = []
+    read_projects_file(projects)
     print(MENU)
     choice = input(">>> ").upper()
     while choice != "Q":
@@ -31,6 +33,14 @@ def main():
         print(MENU)
         choice = input(">>> ").upper()
 
+
+def read_projects_file(projects):
+    with open(FILENAME, 'r') as in_file:
+        in_file.readline()
+        for line in in_file:
+            parts = line.strip().split('\t')
+            project = Project(parts[0], parts[1], int(parts[2]), float(parts[3]), float(parts[4]))
+            projects.append(project)
 
 
 main()
