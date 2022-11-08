@@ -16,7 +16,6 @@ MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter p
 def main():
     projects = []
     read_projects_file(projects)
-    projects.sort()
     print(MENU)
     choice = input(">>> ").upper()
     while choice != "Q":
@@ -29,26 +28,41 @@ def main():
         elif choice == "F":
             pass
         elif choice == "A":
-            pass
+            add_project(projects)
         elif choice == "U":
-            for i, project in enumerate(projects, 0):
-                print(i, project)
-            project_choice = (int(input("Project choice: ")))
-            print(projects[project_choice])
-            new_percent = float(input("New Percentage: "))
-            new_priority = int(input("New Priority: "))
-            projects[project_choice].percent = new_percent
-            projects[project_choice].priority = new_priority
+            update_project(projects)
         print(MENU)
         choice = input(">>> ").upper()
 
 
+def add_project(projects):
+    print("Let's add a new project")
+    project_name = input("Name: ")
+    start_date = input("Start date (dd/mm/yy): ")
+    priority_number = int(input("Priority: "))
+    cost_estimate = float(input("Cost estimate: $"))
+    percent_complete = float(input("Percent complete: "))
+    project = Project(project_name, start_date, priority_number, cost_estimate, percent_complete)
+    projects.append(project)
+
+
+def update_project(projects):
+    for i, project in enumerate(projects, 0):
+        print(i, project)
+    project_choice = (int(input("Project choice: ")))
+    print(projects[project_choice])
+    new_percent = float(input("New Percentage: "))
+    new_priority = int(input("New Priority: "))
+    projects[project_choice].percent = new_percent
+    projects[project_choice].priority = new_priority
+
+
 def display_project_completion(projects):
     print("Incomplete projects:")
-    incomplete_project = [project for project in projects if not project.is_complete()]
+    incomplete_project = [project for project in sorted(projects) if not project.is_complete()]
     for project in incomplete_project:
         print(" ", project)
-    complete_project = [project for project in projects if project.is_complete()]
+    complete_project = [project for project in sorted(projects) if project.is_complete()]
     print("Complete projects:")
     for project in complete_project:
         print(" ", project)
