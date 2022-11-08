@@ -22,3 +22,16 @@ class Project:
 
     def __lt__(self, other):
         return self.priority < other.priority
+
+    def __is_complete__(self):
+        return self.percent == 100
+
+
+def run_test():
+    project = Project("Build Car Park", "12/09/2021", 2, 600000.0, 100)
+    print(project)
+    print(project.__is_complete__())
+
+
+if __name__ == '__main__':
+    run_test()
