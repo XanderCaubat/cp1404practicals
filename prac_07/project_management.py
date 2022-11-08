@@ -16,6 +16,7 @@ MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter p
 def main():
     projects = []
     read_projects_file(projects)
+    projects.sort()
     print(MENU)
     choice = input(">>> ").upper()
     while choice != "Q":
@@ -30,17 +31,24 @@ def main():
         elif choice == "A":
             pass
         elif choice == "U":
-            pass
+            for i, project in enumerate(projects, 0):
+                print(i, project)
+            project_choice = (int(input("Project choice: ")))
+            print(projects[project_choice])
+            new_percent = float(input("New Percentage: "))
+            new_priority = int(input("New Priority: "))
+            projects[project_choice].percent = new_percent
+            projects[project_choice].priority = new_priority
         print(MENU)
         choice = input(">>> ").upper()
 
 
 def display_project_completion(projects):
     print("Incomplete projects:")
-    incomplete_project = [project for project in sorted(projects) if not project.__is_complete__()]
+    incomplete_project = [project for project in projects if not project.is_complete()]
     for project in incomplete_project:
         print(" ", project)
-    complete_project = [project for project in projects if project.__is_complete__()]
+    complete_project = [project for project in projects if project.is_complete()]
     print("Complete projects:")
     for project in complete_project:
         print(" ", project)
