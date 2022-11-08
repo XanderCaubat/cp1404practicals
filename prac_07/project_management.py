@@ -8,21 +8,22 @@ Actual:      minutes
 import datetime
 
 from prac_07.project import Project
-FILENAME = "projects.txt"
+
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new " \
        "project\n- (U)pdate project\n- (Q)uit "
 
 
 def main():
     projects = []
-    read_projects_file(projects)
+    filename = "projects.txt"
+    read_file(filename, projects)
     print(MENU)
     choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "L":
-            pass
+            filename = load_file(filename, projects)
         elif choice == "S":
-            pass
+            save_project(filename, projects)
         elif choice == "D":
             display_project_completion(projects)
         elif choice == "F":
@@ -33,6 +34,35 @@ def main():
             update_project(projects)
         print(MENU)
         choice = input(">>> ").upper()
+
+
+def save_project(filename, projects):
+    with open(filename, 'w') as out_file:
+        out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage")
+        for project in projects:
+            print(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost}"
+                  f"\t{project.percent}")
+        projects.clear()
+
+
+def load_file(filename, projects):
+    if len(projects) != 0:
+        print("You are still managing an existing file. Please save to load a new one")
+    else:
+        filename = input("Filename: ")
+        read_file(filename, projects)
+    return filename
+
+
+def read_file(filename, projects):
+    with open(filename, 'r') as in_file:
+        in_file.readline()
+        for line in in_file:
+            parts = line.strip().split('\t')
+            parts[1] = parts[1].split('/')
+            date = datetime.date(int(parts[1][2]), int(parts[1][1]), int(parts[1][0]))
+            project = Project(parts[0], date, int(parts[2]), float(parts[3]), float(parts[4]))
+            projects.append(project)
 
 
 def filter_project(projects):
@@ -51,6 +81,8 @@ def add_project(projects):
     priority_number = int(input("Priority: "))
     cost_estimate = float(input("Cost estimate: $"))
     percent_complete = float(input("Percent complete: "))
+    parts = start_date.split('/')
+    start_date = datetime.date(int(parts[2]), int(parts[1]), int(parts[0]))
     project = Project(project_name, start_date, priority_number, cost_estimate, percent_complete)
     projects.append(project)
 
@@ -75,17 +107,6 @@ def display_project_completion(projects):
     print("Complete projects:")
     for project in complete_project:
         print(" ", project)
-
-
-def read_projects_file(projects):
-    with open(FILENAME, 'r') as in_file:
-        in_file.readline()
-        for line in in_file:
-            parts = line.strip().split('\t')
-            parts[1] = parts[1].split('/')
-            date = datetime.date(int(parts[1][2]), int(parts[1][1]), int(parts[1][0]))
-            project = Project(parts[0], date, int(parts[2]), float(parts[3]), float(parts[4]))
-            projects.append(project)
 
 
 main()
