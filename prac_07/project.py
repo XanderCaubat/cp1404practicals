@@ -17,8 +17,8 @@ class Project:
         self.percent = percent
 
     def __repr__(self):
-        return f"{self.name}, starting date: {self.start_date}, " \
-               f"priority = {self.priority}, ${self.cost}, {self.percent}%"
+        return f"{self.name}, start: {self.start_date}, " \
+               f"priority {self.priority}, estimate: ${self.cost}, completion: {self.percent}%"
 
     def __lt__(self, other):
         return self.priority < other.priority
