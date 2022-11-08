@@ -3,7 +3,7 @@ CP1404/CP5632 - Practical 7
 Guitar File Reader
 This program opens and reads guitars csv file
 Estimate: 100 minutes
-Actual:       minutes
+Actual:    30  minutes
 """
 
 from prac_07.guitar import Guitar
