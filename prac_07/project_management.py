@@ -26,13 +26,22 @@ def main():
         elif choice == "D":
             display_project_completion(projects)
         elif choice == "F":
-            pass
+            filter_project(projects)
         elif choice == "A":
             add_project(projects)
         elif choice == "U":
             update_project(projects)
         print(MENU)
         choice = input(">>> ").upper()
+
+
+def filter_project(projects):
+    filter_date = input("Show projects that start after date (dd/mm/yy): ")
+    parts = filter_date.split('/')
+    date = datetime.date(int(parts[2]), int(parts[1]), int(parts[0]))
+    for project in projects:
+        if project.start_date >= date:
+            print(project)
 
 
 def add_project(projects):
