@@ -5,9 +5,9 @@ This program manage project priority, completion status and estimated cost
 Estimate: 100 minutes
 Actual:      minutes
 """
+import datetime
 
 from prac_07.project import Project
-
 FILENAME = "projects.txt"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new " \
        "project\n- (U)pdate project\n- (Q)uit "
@@ -73,7 +73,9 @@ def read_projects_file(projects):
         in_file.readline()
         for line in in_file:
             parts = line.strip().split('\t')
-            project = Project(parts[0], parts[1], int(parts[2]), float(parts[3]), float(parts[4]))
+            parts[1] = parts[1].split('/')
+            date = datetime.date(int(parts[1][2]), int(parts[1][1]), int(parts[1][0]))
+            project = Project(parts[0], date.strftime("%d/%m/%y"), int(parts[2]), float(parts[3]), float(parts[4]))
             projects.append(project)
 
 
