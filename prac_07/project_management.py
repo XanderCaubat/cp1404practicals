@@ -7,6 +7,7 @@ Actual:      minutes
 """
 
 from prac_07.project import Project
+
 FILENAME = "projects.txt"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new " \
        "project\n- (U)pdate project\n- (Q)uit "
@@ -38,11 +39,11 @@ def display_project_completion(projects):
     print("Incomplete projects:")
     incomplete_project = [project for project in sorted(projects) if not project.__is_complete__()]
     for project in incomplete_project:
-        print(project)
+        print(" ", project)
     complete_project = [project for project in projects if project.__is_complete__()]
     print("Complete projects:")
     for project in complete_project:
-        print(project)
+        print(" ", project)
 
 
 def read_projects_file(projects):
