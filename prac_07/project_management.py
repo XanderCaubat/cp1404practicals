@@ -41,7 +41,7 @@ def save_project(filename, projects):
         out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage")
         for project in projects:
             print(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost}"
-                  f"\t{project.percent}")
+                  f"\t{project.percent}", file=out_file)
         projects.clear()
 
 
