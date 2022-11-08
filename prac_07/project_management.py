@@ -23,7 +23,7 @@ def main():
         elif choice == "S":
             pass
         elif choice == "D":
-            pass
+            display_project_completion(projects)
         elif choice == "F":
             pass
         elif choice == "A":
@@ -32,6 +32,17 @@ def main():
             pass
         print(MENU)
         choice = input(">>> ").upper()
+
+
+def display_project_completion(projects):
+    print("Incomplete projects:")
+    incomplete_project = [project for project in sorted(projects) if not project.__is_complete__()]
+    for project in incomplete_project:
+        print(project)
+    complete_project = [project for project in projects if project.__is_complete__()]
+    print("Complete projects:")
+    for project in complete_project:
+        print(project)
 
 
 def read_projects_file(projects):
