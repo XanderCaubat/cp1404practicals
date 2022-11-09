@@ -32,6 +32,8 @@ def main():
             add_project(projects)
         elif choice == "U":
             update_project(projects)
+        else:
+            print("Invalid choice!")
         print(MENU)
         choice = input(">>> ").upper()
 
@@ -66,9 +68,17 @@ def read_file(filename, projects):
 
 
 def filter_project(projects):
-    filter_date = input("Show projects that start after date (dd/mm/yy): ")
-    parts = filter_date.split('/')
-    date = datetime.date(int(parts[2]), int(parts[1]), int(parts[0]))
+    is_valid = False
+    while not is_valid:
+        try:
+            filter_date = input("Show projects that start after date (dd/mm/yy): ")
+            parts = filter_date.split('/')
+            date = datetime.date(int(parts[2]), int(parts[1]), int(parts[0]))
+            return True
+        except IndexError:
+            print("Invalid input. Please enter the right date format.")
+        except ValueError:
+            print("Invalid date. Please enter the right date format. ")
     for project in projects:
         if project.start_date >= date:
             print(project)
