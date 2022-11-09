@@ -71,23 +71,23 @@ def filter_project(projects):
     is_valid = False
     while not is_valid:
         try:
-            filter_date = input("Show projects that start after date (dd/mm/yy): ")
+            filter_date = input("Show projects that start after date (dd/mm/yyyy): ")
             parts = filter_date.split('/')
             date = datetime.date(int(parts[2]), int(parts[1]), int(parts[0]))
+            for project in projects:
+                if project.start_date >= date:
+                    print(project)
             return True
         except IndexError:
             print("Invalid input. Please enter the right date format.")
         except ValueError:
             print("Invalid date. Please enter the right date format. ")
-    for project in projects:
-        if project.start_date >= date:
-            print(project)
 
 
 def add_project(projects):
     print("Let's add a new project")
     project_name = input("Name: ")
-    start_date = input("Start date (dd/mm/yy): ")
+    start_date = input("Start date (dd/mm/yyyy): ")
     priority_number = int(input("Priority: "))
     cost_estimate = float(input("Cost estimate: $"))
     percent_complete = float(input("Percent complete: "))
