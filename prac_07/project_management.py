@@ -157,12 +157,38 @@ def get_project_name():
 def update_project(projects):
     for i, project in enumerate(projects, 0):
         print(i, project)
-    project_choice = (int(input("Project choice: ")))
+    max_number = len(projects)
+    project_choice = get_valid_project_choice(max_number)
     print(projects[project_choice])
-    new_percent = float(input("New Percentage: "))
-    new_priority = int(input("New Priority: "))
+    new_percent = get_valid_new_percentage()
     projects[project_choice].percent = new_percent
-    projects[project_choice].priority = new_priority
+    new_priority = int(input("New Priority: "))
+    if new_priority == "":
+        projects[project_choice].priority = projects[project_choice].priority
+    else:
+        projects[project_choice].priority = new_priority
+
+
+def get_valid_new_percentage():
+    new_percent = float(input("New Percentage: "))
+    while new_percent < 1 or new_percent > 100:
+        print("Invalid percentage.")
+        new_percent = float(input("New Percentage: "))
+    return new_percent
+
+
+def get_valid_project_choice(max_number):
+    is_valid = False
+    while not is_valid:
+        try:
+            project_choice = (int(input("Project choice: ")))
+            while project_choice not in range(0, max_number):
+                print("Invalid choice.")
+                project_choice = (int(input("Project choice: ")))
+            is_valid = True
+        except ValueError:
+            print("Invalid input.")
+    return project_choice
 
 
 def display_project_completion(projects):
