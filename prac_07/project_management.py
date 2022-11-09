@@ -77,24 +77,81 @@ def filter_project(projects):
             for project in projects:
                 if project.start_date >= date:
                     print(project)
-            return True
+            is_valid = True
         except IndexError:
             print("Invalid input. Please enter the right date format.")
         except ValueError:
-            print("Invalid date. Please enter the right date format. ")
+            print("Invalid date. Please enter the right date format.")
 
 
 def add_project(projects):
     print("Let's add a new project")
-    project_name = input("Name: ")
-    start_date = input("Start date (dd/mm/yyyy): ")
-    priority_number = int(input("Priority: "))
-    cost_estimate = float(input("Cost estimate: $"))
-    percent_complete = float(input("Percent complete: "))
-    parts = start_date.split('/')
-    start_date = datetime.date(int(parts[2]), int(parts[1]), int(parts[0]))
+    project_name = get_project_name()
+    start_date = get_valid_date()
+    priority_number = get_valid_number()
+    cost_estimate = get_valid_cost()
+    percent_complete = get_valid_percentage()
     project = Project(project_name, start_date, priority_number, cost_estimate, percent_complete)
     projects.append(project)
+
+
+def get_valid_percentage():
+    is_valid = False
+    while not is_valid:
+        try:
+            percent_complete = float(input("Percent complete: "))
+            while percent_complete < 1 or percent_complete > 100:
+                print("Invalid percentage.")
+                percent_complete = float(input("Percent complete: "))
+                is_valid = True
+        except ValueError:
+            print("Invalid input.")
+    return percent_complete
+
+
+def get_valid_cost():
+    is_valid = False
+    while not is_valid:
+        try:
+            cost_estimate = float(input("Cost estimate: $"))
+            is_valid = True
+        except ValueError:
+            print("Invalid input.")
+    return cost_estimate
+
+
+def get_valid_number():
+    is_valid = False
+    while not is_valid:
+        try:
+            priority_number = int(input("Priority: "))
+            is_valid = True
+        except ValueError:
+            print("Invalid integer.")
+    return priority_number
+
+
+def get_valid_date():
+    is_valid = False
+    while not is_valid:
+        try:
+            start_date = input("Start date (dd/mm/yyyy): ")
+            parts = start_date.split('/')
+            start_date = datetime.date(int(parts[2]), int(parts[1]), int(parts[0]))
+            is_valid = True
+        except IndexError:
+            print("Invalid input. Please enter the right date format.")
+        except ValueError:
+            print("Invalid date. Please enter the right date format.")
+    return start_date
+
+
+def get_project_name():
+    project_name = input("Name: ")
+    while project_name == "":
+        print("Project name cannot be blank.")
+        project_name = input("Name: ")
+    return project_name
 
 
 def update_project(projects):
