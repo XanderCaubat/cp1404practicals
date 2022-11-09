@@ -180,10 +180,16 @@ def get_valid_new_priority(project_choice, projects):
 
 
 def get_valid_new_percentage():
-    new_percent = float(input("New Percentage: "))
-    while new_percent < 1 or new_percent > 100:
-        print("Invalid percentage.")
-        new_percent = float(input("New Percentage: "))
+    is_valid = False
+    while not is_valid:
+        try:
+            new_percent = float(input("New Percentage: "))
+            while new_percent < 1 or new_percent > 100:
+                print("Invalid percentage.")
+                new_percent = float(input("New Percentage: "))
+            is_valid = True
+        except ValueError:
+            print("Invalid input.")
     return new_percent
 
 
