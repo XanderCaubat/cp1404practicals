@@ -162,11 +162,21 @@ def update_project(projects):
     print(projects[project_choice])
     new_percent = get_valid_new_percentage()
     projects[project_choice].percent = new_percent
-    new_priority = int(input("New Priority: "))
-    if new_priority == "":
-        projects[project_choice].priority = projects[project_choice].priority
-    else:
-        projects[project_choice].priority = new_priority
+    get_valid_new_priority(project_choice, projects)
+
+
+def get_valid_new_priority(project_choice, projects):
+    is_valid = False
+    while not is_valid:
+        try:
+            new_priority = int(input("New Priority: "))
+            if new_priority == "":
+                projects[project_choice].priority = projects[project_choice].priority
+            else:
+                projects[project_choice].priority = new_priority
+            is_valid = True
+        except ValueError:
+            print("Invalid integer.")
 
 
 def get_valid_new_percentage():
