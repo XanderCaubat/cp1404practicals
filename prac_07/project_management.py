@@ -40,7 +40,7 @@ def main():
 
 def save_project(filename, projects):
     with open(filename, 'w') as out_file:
-        out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage")
+        out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
         for project in projects:
             print(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost}"
                   f"\t{project.percent}", file=out_file)
