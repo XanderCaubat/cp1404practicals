@@ -2,7 +2,7 @@
 CP1404/CP5632 - Practical 8
 Box Layout App
 Estimate: 30 minutes
-Actual:     minutes
+Actual:   10 minutes
 """
 
 from kivy.app import App
