@@ -12,11 +12,11 @@ BoxLayout:
             Button:
                 id: up
                 text: 'Up'
-                on_press:app.handle_increment(input_distance.text, + 1)
+                on_press:app.handle_increment(1)
             Button:
                 id: down
                 text: 'Down'
-                on_press:app.handle_decrement(input_distance.text, - 1)
+                on_press:app.handle_decrement(1)
     Button:
         id: convert
         text: 'Convert m to km'
