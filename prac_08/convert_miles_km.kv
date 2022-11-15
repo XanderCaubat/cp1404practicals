@@ -3,14 +3,24 @@ BoxLayout:
     BoxLayout:
         orientation: 'horizontal'
         TextInput:
+            id: input_distance
+            text: '0'
             font_size: 48
         BoxLayout:
             orientation: 'vertical'
+            size_hint_x: .2
             Button:
+                id: up
                 text: 'Up'
+                on_press:app.handle_increment(input_distance.text, + 1)
             Button:
+                id: down
                 text: 'Down'
+                on_press:app.handle_decrement(input_distance.text, - 1)
     Button:
+        id: convert
         text: 'Convert m to km'
+        on_press:app.handle_conversion(input_distance.text)
     Label:
+        id: output_label
         text: 'Enter distance and  press "Convert m to km"'
