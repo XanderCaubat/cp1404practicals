@@ -8,6 +8,8 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
 
+KM_PER_MILE = 1.6
+
 
 class KmMilesConverterApp(App):
 
@@ -18,12 +20,15 @@ class KmMilesConverterApp(App):
         return self.root
 
     def handle_conversion(self, value):
-        result = self.get_miles() * 1.6
+        result = self.get_miles() * KM_PER_MILE
         self.root.ids.output_label.text = str(f"{result:.2f} km")
 
     def get_miles(self):
-        miles = float(self.root.ids.input_distance.text)
-        return miles
+        try:
+            miles = float(self.root.ids.input_distance.text)
+            return miles
+        except ValueError:
+            return 0
 
     def handle_increment(self, increment):
         new_result = self.get_miles() + increment
