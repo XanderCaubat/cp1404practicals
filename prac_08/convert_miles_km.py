@@ -17,5 +17,9 @@ class KmMilesConverterApp(App):
         self.root = Builder.load_file('convert_miles_km.kv')
         return self.root
 
+    def handle_conversion(self, value):
+        result = float(value) * 1.6
+        self.root.ids.output_label.text = str(f"{result:.2f} km")
+
 
 KmMilesConverterApp().run()
