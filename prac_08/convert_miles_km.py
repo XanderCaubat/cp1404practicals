@@ -16,3 +16,6 @@ class KmMilesConverterApp(App):
         self.title = "Miles/Km Converter"
         self.root = Builder.load_file('convert_miles_km.kv')
         return self.root
+
+
+KmMilesConverterApp().run()
