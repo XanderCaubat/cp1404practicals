@@ -1,0 +1,28 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            id: input_distance
+            text: '0'
+            font_size: 48
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: .2
+            Button:
+                id: up
+                text: 'Up'
+                on_press:app.handle_increment(1)
+            Button:
+                id: down
+                text: 'Down'
+                on_press:app.handle_decrement(1)
+    Button:
+        id: convert
+        text: 'Convert m to km'
+        on_press:app.handle_conversion(input_distance.text)
+    Label:
+        id: output_label
+        font_size: 24
+        color: (1, 10, 255, 1)
+        text: 'Enter distance and  press "Convert m to km"'
