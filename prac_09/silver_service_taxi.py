@@ -1,8 +1,8 @@
 """
 CP1404/CP5632 - Practical 9
 Silver Service taxi class
-Estimate: 15 minutes
-Actual:    minutes
+Estimate: 10 minutes
+Actual:   12 minutes
 """
 
 from prac_09.taxi import Taxi
