@@ -17,7 +17,7 @@ class UnreliableCar(Car):
         self.reliability = reliability
 
     def __str__(self):
-        return f"{super().__str__()}"
+        return f"{super().__str__()}, {self.reliability}"
 
     def drive(self, distance):
         random_distance = randint(0, 100)
