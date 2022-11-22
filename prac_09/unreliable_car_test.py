@@ -3,7 +3,7 @@ CP1404/CP5632 - Practical 9
 Unreliable Car Test
 This program test the my_unreliable_car object with Car class
 Estimate: 15 minutes
-Actual:    minutes
+Actual:   17 minutes
 """
 
 from prac_09.unreliable_car import UnreliableCar

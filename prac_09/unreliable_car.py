@@ -2,7 +2,7 @@
 CP1404/CP5632 - Practical 9
 Unreliable Car Class
 Estimate: 15 minutes
-Actual:    minutes
+Actual:   10 minutes
 """
 
 from random import randint
