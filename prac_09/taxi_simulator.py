@@ -29,7 +29,7 @@ def main():
             except IndexError:
                 print("Invalid taxi choice.")
                 display_current_cost(total_cost)
-                display_taxis(taxis)
+                display_menu()
             except ValueError:
                 print("Invalid input.")
                 display_current_cost(total_cost)
@@ -47,7 +47,7 @@ def main():
                 display_current_cost(total_cost)
                 display_menu()
         else:
-            print("Invalid choice.")
+            print("Invalid option.")
             display_current_cost(total_cost)
             display_menu()
         choice = input(">>> ").upper()
