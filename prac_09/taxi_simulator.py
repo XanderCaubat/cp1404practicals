@@ -15,8 +15,8 @@ MENU = "q)uit, c)hoose, d)rive"
 def main():
     current_taxi = None
     total_cost = 0
-    print("let's drive!")
-    print(MENU)
+    print("Let's drive!")
+    display_menu()
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     choice = input(">>> ").upper()
     while choice != 'Q':
@@ -45,13 +45,18 @@ def main():
             else:
                 print("You need to choose a taxi before you can drive.")
                 display_current_cost(total_cost)
-                print(MENU)
+                display_menu()
         else:
             print("Invalid choice.")
             display_current_cost(total_cost)
+            display_menu()
         choice = input(">>> ").upper()
-    print(MENU)
+    display_menu()
     display_taxis(taxis)
+
+
+def display_menu():
+    print(MENU)
 
 
 def display_current_cost(total_cost):
