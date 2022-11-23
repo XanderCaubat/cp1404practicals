@@ -25,9 +25,11 @@ def main():
             try:
                 current_taxi = taxis[number_choice]
             except IndexError:
-                print("Invalid choice.")
+                print("Invalid taxi choice.")
+                display_current_cost(total_cost)
             except ValueError:
                 print("Invalid input.")
+                display_current_cost(total_cost)
         elif choice == 'D':
             if current_taxi:
                 current_taxi.start_fare()
@@ -38,12 +40,17 @@ def main():
                 total_cost += taxi_fare
             else:
                 print("You need to choose a taxi before you can drive.")
+                display_current_cost(total_cost)
         else:
             print("Invalid choice.")
+            display_current_cost(total_cost)
         choice = input(">>> ").upper()
-    print(f"Bill to date: ${total_cost:.2f}")
     print(MENU)
     display_taxis(taxis)
+
+
+def display_current_cost(total_cost):
+    print(f"Bill to date: ${total_cost:.2f}")
 
 
 def display_taxis(taxis):
