@@ -41,6 +41,9 @@ def main():
         else:
             print("Invalid choice.")
         choice = input(">>> ").upper()
+    print(f"Bill to date: ${total_cost:.2f}")
+    print(MENU)
+    display_taxis(taxis)
 
 
 def display_taxis(taxis):
