@@ -9,12 +9,13 @@ Actual:
 from prac_09.taxi import Taxi
 from prac_09.silver_service_taxi import SilverServiceTaxi
 
-MENU = "Let's drive!\nq)uit, c)hoose, d)rive"
+MENU = "q)uit, c)hoose, d)rive"
 
 
 def main():
     current_taxi = None
     total_cost = 0
+    print("let's drive!")
     print(MENU)
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     choice = input(">>> ").upper()
@@ -44,6 +45,7 @@ def main():
             else:
                 print("You need to choose a taxi before you can drive.")
                 display_current_cost(total_cost)
+                print(MENU)
         else:
             print("Invalid choice.")
             display_current_cost(total_cost)
