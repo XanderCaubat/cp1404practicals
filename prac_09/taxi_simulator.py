@@ -23,7 +23,7 @@ def main():
         if menu_choice == 'C':
             print("Taxis available:")
             display_taxis(taxis)
-            number_choice = int(input(">>> "))
+            number_choice = int(input("Choose Taxi: "))
             try:
                 current_taxi = taxis[number_choice]
                 display_current_cost(total_cost)
@@ -44,6 +44,7 @@ def main():
                 taxi_fare = current_taxi.get_fare()
                 print(f"Your {current_taxi.name} trip cost you ${taxi_fare:.2f}")
                 total_cost += taxi_fare
+                display_current_cost(total_cost)
             else:
                 print("You need to choose a taxi before you can drive.")
                 display_current_cost(total_cost)
@@ -53,8 +54,9 @@ def main():
             display_current_cost(total_cost)
             display_menu()
         menu_choice = input(">>> ").upper()
-    display_menu()
-    display_taxis(taxis)
+    print(f"Total trip cost: ${total_cost}")
+    print("Taxis are now: ")
+    print(display_taxis(taxis))
 
 
 def display_menu():
