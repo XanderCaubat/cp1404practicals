@@ -19,15 +19,24 @@ def main():
     choice = input(">>> ").upper()
     while choice != 'Q':
         if choice == 'C':
-            for i, taxi in enumerate(taxis):
-                print(f"{i} - {taxi}")
-            number_choice = int(input(">>> "))
-            current_taxi = taxis[number_choice]
+            display_taxis(taxis)
+            try:
+                number_choice = int(input(">>> "))
+                current_taxi = taxis[number_choice]
+            except IndexError:
+                print("Invalid choice")
+            except ValueError:
+                print("Invalid input")
         elif choice == 'D':
             pass
         else:
             print("Invalid choice.")
         choice = input(">>> ").upper()
+
+
+def display_taxis(taxis):
+    for i, taxi in enumerate(taxis):
+        print(f"{i} - {taxi}")
 
 
 main()
