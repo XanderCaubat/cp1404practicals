@@ -14,6 +14,7 @@ MENU = "Let's drive!\nq)uit, c)hoose, d)rive"
 
 def main():
     current_taxi = None
+    total_cost = 0
     print(MENU)
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     choice = input(">>> ").upper()
@@ -21,21 +22,25 @@ def main():
         if choice == 'C':
             display_taxis(taxis)
             number_choice = int(input(">>> "))
-            get_valid_number_choice(number_choice, taxis)
+            try:
+                current_taxi = taxis[number_choice]
+            except IndexError:
+                print("Invalid choice.")
+            except ValueError:
+                print("Invalid input.")
         elif choice == 'D':
-            pass
+            if current_taxi:
+                current_taxi.start_fare()
+                drive_distance = float(input("Drive how far? "))
+                current_taxi.drive(drive_distance)
+                taxi_fare = current_taxi.get_fare()
+                print(f"Your {current_taxi.name} trip cost you ${taxi_fare:.2f}")
+                total_cost += taxi_fare
+            else:
+                print("You need to choose a taxi before you can drive.")
         else:
             print("Invalid choice.")
         choice = input(">>> ").upper()
-
-
-def get_valid_number_choice(number_choice, taxis):
-    try:
-        current_taxi = taxis[number_choice]
-    except IndexError:
-        print("Invalid choice")
-    except ValueError:
-        print("Invalid input")
 
 
 def display_taxis(taxis):
