@@ -1,9 +1,7 @@
 """
-CP1404/CP5632 - Practical 6
+CP1404/CP5632 - Practical 9
 Cars
 This program uses Car class as an example
-Estimate: 100 minutes
-Actual:    60 minutes
 """
 
 
@@ -20,7 +18,7 @@ class Car:
         self._odometer = 0
 
     def __str__(self):
-        return f"{self.name}, {self.fuel}"
+        return f"{self.name}, fuel={self.fuel}, odo={self._odometer}"
 
     def add_fuel(self, amount):
         """Add amount to the car's fuel"""
