@@ -20,13 +20,8 @@ def main():
     while choice != 'Q':
         if choice == 'C':
             display_taxis(taxis)
-            try:
-                number_choice = int(input(">>> "))
-                current_taxi = taxis[number_choice]
-            except IndexError:
-                print("Invalid choice")
-            except ValueError:
-                print("Invalid input")
+            number_choice = int(input(">>> "))
+            get_valid_number_choice(number_choice, taxis)
         elif choice == 'D':
             pass
         else:
@@ -34,7 +29,17 @@ def main():
         choice = input(">>> ").upper()
 
 
+def get_valid_number_choice(number_choice, taxis):
+    try:
+        current_taxi = taxis[number_choice]
+    except IndexError:
+        print("Invalid choice")
+    except ValueError:
+        print("Invalid input")
+
+
 def display_taxis(taxis):
+    print("Taxis available:")
     for i, taxi in enumerate(taxis):
         print(f"{i} - {taxi}")
 
