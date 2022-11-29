@@ -48,7 +48,7 @@ run_tests()
 
 # TODO: 3. Uncomment the following line and run the doctests
 # (PyCharm may see your >>> doctest comments and run doctests anyway.)
-# doctest.testmod()
+doctest.testmod()
 
 
 # TODO: 4. Fix the failing is_long_word function
@@ -64,4 +64,19 @@ run_tests()
 # test this and watch the tests fail
 # then write the body of the function so that the tests pass
 
-#
+def format_phrase(phrase):
+    """
+    Format phrase into a sentence
+    >>> format_phrase('hello')
+    'Hello.'
+    >>> format_phrase('It is an ex parrot.')
+    'It is an ex parrot.'
+    >>> format_phrase('I like apple')
+    'I like apple.'
+    """
+    words = phrase.split()
+    words[0] = words[0].title()
+    sentence = " ".join(words)
+    if sentence[-1] != '.':
+        sentence += '.'
+    return sentence
